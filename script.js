@@ -6,37 +6,13 @@ var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 // Creating a variable(generateBtn) referencing the html button
 var generateBtn = document.querySelector("#generate");
 function generatePassword(){
-  var passwordLength = prompt("pick a number of characters for password (Minimum 8 Characters)"); // I had the PROMPT and ALERT outside of this function and it didnt work, after reading i learned they must be nested!
+  let passwordLength = parseInt(prompt("Pick password length. Must be between 8 and 128 characters):"));
+ // I had the PROMPT and ALERT outside of this function and it didnt work, after reading i learned they must be nested!
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)){
     alert("INVALID! Please enter a number between 8 and 128");
     passwordLength = parseInt(prompt("Please enter number between 8 and 128 characters):"));
   }
-} 
-
-
-
-
-
-
-// Write password to the #password input
-// function called "writePassword"
-function writePassword() {
-// creates variable "password" and sets it equal to the return function called "generatePassword"
-  var password = generatePassword();
-// creates variable "passwordText" with a function grabbing "id=password" in html
-  var passwordText = document.querySelector("#password");
-// setting value to password
-  passwordText.value = password;
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-// PHASE 1: creating variables and getting the info we need
-// what do we need to do?
-// must PROMPT user for length of word (8-128)
-
-
-let passwordLength = parseInt(prompt("between 8 and 128 characters):"));
-
+  
 
 
 // confirm user for upper/lower case (yes/no? USE CONFIRM)
@@ -74,6 +50,37 @@ if (includeNumbers){
 if (availableChars.length === 0){
   alert("Please select at least one character type!")
 };
+
+var password ="" //loop adds to this string
+
+for (var i = 0; i < passwordLength;i++){
+var randomChar = availableChars[Math.floor(Math.random()* availableChars.length)]
+password += randomChar
+}
+return password
+} 
+
+
+
+
+
+
+// Write password to the #password input
+// function called "writePassword"
+function writePassword() {
+// creates variable "password" and sets it equal to the return function called "generatePassword"
+  var password = generatePassword();
+// creates variable "passwordText" with a function grabbing "id=password" in html
+  var passwordText = document.querySelector("#password");
+// setting value to password
+  passwordText.value = password;
+}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+// PHASE 1: creating variables and getting the info we need
+// what do we need to do?
+// must PROMPT user for length of word (8-128)
+
 
 
 
