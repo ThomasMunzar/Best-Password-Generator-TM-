@@ -12,7 +12,7 @@
 
 ## Description
 
-[Visit to Deployed Site] (LINK)
+[Visit to Deployed Site](https://thomasmunzar.github.io/Best-Password-Generator-TM-/)
 
 This projects goal was to create a password simulator for any user who would like to create a highly protected password.  When visiting the site the 
 user will interact with a button that says "Generate Password" after clicking on the butting the user can enter the amount of characters AND type of characters that they
